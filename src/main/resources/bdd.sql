@@ -24,6 +24,7 @@ CREATE TABLE assure (
                         email VARCHAR(150) NOT NULL UNIQUE ,
                         iban VARCHAR(34) NOT NULL UNIQUE ,
                         nir VARCHAR(150) NOT NULL UNIQUE ,
+                        is_active BOOLEAN NOT NULL ,
                         formule_id INT NOT NULL REFERENCES formule(id)
 );
 

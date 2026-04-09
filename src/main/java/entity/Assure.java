@@ -30,6 +30,9 @@ public class Assure {
     @Column(nullable = false, unique = true)
     private String nir;
 
+    @Column(nullable = false)
+    private boolean isActive= false;
+
     @ManyToOne
     @JoinColumn(name = "formule_id")
     private Formule formule;
