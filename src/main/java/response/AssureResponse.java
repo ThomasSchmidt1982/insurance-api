@@ -1,4 +1,4 @@
-package response;
+package fr.schmidt.insuranceapi.response;
 
 public record AssureResponse(
         Long id,

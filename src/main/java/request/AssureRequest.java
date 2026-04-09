@@ -1,4 +1,4 @@
-package request;
+package fr.schmidt.insuranceapi.request;
 
 import jakarta.validation.constraints.*;
 

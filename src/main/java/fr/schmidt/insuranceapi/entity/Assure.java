@@ -1,4 +1,4 @@
-package entity;
+package fr.schmidt.insuranceapi.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package service;
+package fr.schmidt.insuranceapi.service;
 
 public class FormuleService {
 }

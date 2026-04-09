@@ -1,6 +1,6 @@
-package repository;
+package fr.schmidt.insuranceapi.repository;
 
-import entity.Remboursement;
+import fr.schmidt.insuranceapi.entity.Remboursement;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

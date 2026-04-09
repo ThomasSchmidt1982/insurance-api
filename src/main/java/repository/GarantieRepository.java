@@ -1,6 +1,6 @@
-package repository;
+package fr.schmidt.insuranceapi.repository;
 
-import entity.Garantie;
+import fr.schmidt.insuranceapi.entity.Garantie;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
-package repository;
+package fr.schmidt.insuranceapi.repository;
 
-import entity.Assure;
+import fr.schmidt.insuranceapi.entity.Assure;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

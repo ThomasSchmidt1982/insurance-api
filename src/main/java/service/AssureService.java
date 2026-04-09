@@ -1,14 +1,12 @@
-package service;
+package fr.schmidt.insuranceapi.service;
 
-
-import entity.Assure;
-import exception.ResourceNotFoundException;
+import fr.schmidt.insuranceapi.entity.Assure;
+import fr.schmidt.insuranceapi.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import repository.AssureRepository;
-import request.AssureRequest;
-import response.AssureResponse;
-
+import fr.schmidt.insuranceapi.repository.AssureRepository;
+import fr.schmidt.insuranceapi.response.AssureResponse;
+import fr.schmidt.insuranceapi.request.AssureRequest;
 import java.util.List;
 
 @Service
