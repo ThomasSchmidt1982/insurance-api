@@ -31,7 +31,7 @@ public class Assure {
     private String nir;
 
     @Column(nullable = false)
-    private boolean isActive= false;
+    private boolean isActive = false;
 
     @ManyToOne
     @JoinColumn(name = "formule_id")

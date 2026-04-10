@@ -1,11 +1,13 @@
 package fr.schmidt.insuranceapi.service;
 
 import fr.schmidt.insuranceapi.entity.Assure;
+import fr.schmidt.insuranceapi.entity.Formule;
+import fr.schmidt.insuranceapi.entity.Garantie;
 import fr.schmidt.insuranceapi.exception.ResourceNotFoundException;
+import fr.schmidt.insuranceapi.response.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import fr.schmidt.insuranceapi.repository.AssureRepository;
-import fr.schmidt.insuranceapi.response.AssureResponse;
 import fr.schmidt.insuranceapi.request.AssureRequest;
 import java.util.List;
 
@@ -33,6 +35,14 @@ public class AssureService {
                 return toResponse(assure);
     }
 
+    // GET /assure/:id/detail
+    public AssureDetailResponse findByDetail(Long id){
+        Assure assure = assureRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Assuré non trouvé"));
+        return toDetailResponse(assure);
+
+    }
+
+
     // POST /assure
     public AssureResponse create(AssureRequest assureRequest){
         Assure assure = new Assure();
@@ -53,7 +63,6 @@ public class AssureService {
         assure.setEmail(assureRequest.email());
         assure.setIban(assureRequest.iban());
         assure.setNir(assureRequest.nir());
-        assure.setActive(assureRequest.isActive());
         return toResponse(assureRepository.save(assure));
     }
 
@@ -76,5 +85,35 @@ public class AssureService {
         );
     }
 
+    private AssureDetailResponse toDetailResponse(Assure assure){
+        return new AssureDetailResponse(
+                assure.getId(),
+                assure.getPrenom(),
+                assure.getNom(),
+                assure.getEmail(),
+                assure.getIban(),
+                assure.getNir(),
+                assure.isActive(),
+                assure.getFormule() != null ? toFormuleDetailResponse(assure.getFormule()) : null
+        );
+    }
+
+    private FormuleDetailResponse toFormuleDetailResponse(Formule formule){
+        return new FormuleDetailResponse(
+                formule.getId(),
+                formule.getLibelle(),
+                formule.getMensualite(),
+                formule.getGaranties().stream().map(this::toGarantieResponse).toList()
+
+        );
+    }
+
+    private GarantieResponse toGarantieResponse(Garantie garantie){
+        return new GarantieResponse(
+                garantie.getId(),
+                garantie.getTypeSoin(),
+                garantie.getTauxRemboursement()
+        );
+    }
 
 }

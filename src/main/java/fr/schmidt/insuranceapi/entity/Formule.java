@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,4 +24,6 @@ public class Formule {
     @Column(nullable = false)
     private BigDecimal mensualite;
 
+    @OneToMany(mappedBy = "formule")
+    private List<Garantie> garanties;
 }

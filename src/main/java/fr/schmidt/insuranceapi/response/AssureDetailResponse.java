@@ -1,11 +1,14 @@
 package fr.schmidt.insuranceapi.response;
 
-public record AssureResponse(
+public record AssureDetailResponse(
         Long id,
         String prenom,
         String nom,
         String email,
         String iban,
-        String nir
+        String nir,
+        Boolean isActive,
+        FormuleDetailResponse formule
+
 )
 {}

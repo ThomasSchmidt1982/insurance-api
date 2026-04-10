@@ -25,7 +25,7 @@ CREATE TABLE assure (
                         iban VARCHAR(34) NOT NULL UNIQUE ,
                         nir VARCHAR(150) NOT NULL UNIQUE ,
                         is_active BOOLEAN NOT NULL ,
-                        formule_id INT NOT NULL REFERENCES formule(id)
+                        formule_id INT REFERENCES formule(id)
 );
 
 CREATE TABLE remboursement (
