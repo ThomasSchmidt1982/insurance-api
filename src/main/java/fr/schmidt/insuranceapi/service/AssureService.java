@@ -25,7 +25,7 @@ public class AssureService {
     public List<AssureResponse> findAll(){
         return assureRepository.findAll()
                 .stream()
-                .map(assure->toResponse(assure))
+                .map(this::toResponse)
                 .toList();
     }
 
